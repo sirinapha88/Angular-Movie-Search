@@ -1,0 +1,22 @@
+.search{
+	text-align: center;
+	margin-bottom: 30px; 
+}
+.hidden{
+	display: none;
+}
+
+.jumbotron{
+	width: 400px;
+	height: 150px;
+	margin-left:  40px;
+	margin-bottom: 20px;
+	float: left;
+}
+.movieResult{
+	border-style: dotted;
+}
+
+p{
+	font-size: 12pt;
+}
