@@ -6,6 +6,8 @@ app.controller("MainController", function($scope, $http){
 	$scope.displayVisible = false;
 
 	$scope.startSearch = function(searchQuery){
+		$scope.toggle = false;
+		$scope.displayVisible = true;
 		var searchUrl = "http://www.omdbapi.com/?s=" + searchQuery;
 		
 		movieQueryRequest = $http({
@@ -20,6 +22,8 @@ app.controller("MainController", function($scope, $http){
 
 	$scope.showMovie = function(movie){
 		$scope.movieTitle = movie.Tille;
+		$scope.toggle = false;
+		$scope.displayVisible = false;
 
 		var searchTitleUrl = "http://www.omdbapi.com/?i=" + movie.imdbID;
 
@@ -31,17 +35,11 @@ app.controller("MainController", function($scope, $http){
 			var showMovieDetail = searchResponse.data;
 			$scope.movieDetails = showMovieDetail;
 			$scope.searchQuery = '';
-			$scope.startSearch(searchQuery);
 		});
 	};
 
 	$scope.toggleVisibility = function() {
     	$scope.toggle = !$scope.toggle;
   	};
-
-  	$scope.displayVisible = function() {
-    	$scope.displayVisible = !$scope.displayVisible;
-  	};
-
 
 });

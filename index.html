@@ -3,8 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Movie Search App</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
 	 <script src="js/app.js" charset="utf-8"></script>
+	 
 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/style.css" >
 </head>
@@ -14,17 +16,17 @@
 			<h1>Angular OMDB API search</h1>
 			<h3>Enter your movie by tilte.</h3>
 			<label for="movieSearch"></label>
-			<input type="text" ng-model="searchQuery">
+			<input type="text" ng-model="searchQuery" size="35">
 			<div ng-click="toggleVisibility()">
 			<button ng-click="startSearch(searchQuery)"  class="btn btn-primary">Search!</button></div>
 		</div>
-		<div ng-repeat="movie in movies" class="jumbotron" ng-show="displayVisible">
-			<a ng-click="showMovie(movie); displayVisible()"> {{movie.Title}} <br>{{movie.Year}}</a>
+		<div ng-repeat="movie in movies" class="jumbotron" ng-if="displayVisible">
+			<a ng-click="showMovie(movie)"> {{movie.Title}} <br>{{movie.Year}}</a>
 		</div>
 		
-		<div class="row" class="movieResult" ng-show="!toggle">
+		<div class="row" class="movieResult" ng-if="!toggle">
 		  	<div class="col-xs-4"><img ng-src="{{movieDetails.Poster}}"></div>
-	  		<div class="col-xs-6" class="hidden">
+	  		<div class="col-xs-6">
 				<h3>{{movieDetails.Title}}<h3>				
 				<h4>Plot:</h4> <p>{{movieDetails.Plot}}</p>
 				<h4>Director:</h4> <p>{{movieDetails.Director}}</p>
