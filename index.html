@@ -15,27 +15,28 @@
 			<h3>Enter your movie by tilte.</h3>
 			<label for="movieSearch"></label>
 			<input type="text" ng-model="searchQuery">
-			<button ng-click="startSearch(searchQuery); toggleNewPostVisibility()"  class="btn btn-primary">Search!</button>
+			<div ng-click="toggleVisibility()">
+			<button ng-click="startSearch(searchQuery)"  class="btn btn-primary">Search!</button></div>
 		</div>
-		<div ng-repeat="movie in movies" class="jumbotron">
-			<a ng-click="showMovie(movie)"> {{movie.Title}} <br>{{movie.Year}}</a>
+		<div ng-repeat="movie in movies" class="jumbotron" ng-show="displayVisible">
+			<a ng-click="showMovie(movie); displayVisible()"> {{movie.Title}} <br>{{movie.Year}}</a>
 		</div>
 		
-		<div class="row" class="movieResult" >
+		<div class="row" class="movieResult" ng-show="!toggle">
 		  	<div class="col-xs-4"><img ng-src="{{movieDetails.Poster}}"></div>
-		  		<div class="col-xs-6">
-					<h3>{{movieDetails.Title}}<h3>				
-					<h4>Plot:</h4> <p>{{movieDetails.Plot}}</p>
-					<h4>Director:</h4> <p>{{movieDetails.Director}}</p>
-					<h4>Actors:</h4> <p>{{movieDetails.Actors}}</p>
-					<h4>Writer:</h4> <p>{{movieDetails.Writer}}</p>
-					<h4>Awards:</h4> <p>{{movieDetails.Awards}}</p>
-					<h4>Genre:</h4> <p>{{movieDetails.Genre}}</p>
-					<h4>Release:</h4> <p>{{movieDetails.Released}}</p>
-					<h4>Rated:</h4> <p>{{movieDetails.Rated}}</p>
-					<h4>Year:</h4> <p>{{movieDetails.Year}}</p>
-					<h4>Run Time:</h4> <p>{{movieDetails.Runtime}}</p>				
-				</div>
+	  		<div class="col-xs-6" class="hidden">
+				<h3>{{movieDetails.Title}}<h3>				
+				<h4>Plot:</h4> <p>{{movieDetails.Plot}}</p>
+				<h4>Director:</h4> <p>{{movieDetails.Director}}</p>
+				<h4>Actors:</h4> <p>{{movieDetails.Actors}}</p>
+				<h4>Writer:</h4> <p>{{movieDetails.Writer}}</p>
+				<h4>Awards:</h4> <p>{{movieDetails.Awards}}</p>
+				<h4>Genre:</h4> <p>{{movieDetails.Genre}}</p>
+				<h4>Release:</h4> <p>{{movieDetails.Released}}</p>
+				<h4>Rated:</h4> <p>{{movieDetails.Rated}}</p>
+				<h4>Year:</h4> <p>{{movieDetails.Year}}</p>
+				<h4>Run Time:</h4> <p>{{movieDetails.Runtime}}</p>				
+			</div>
 			</div>
 		</div>
 	</div>
