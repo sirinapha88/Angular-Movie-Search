@@ -41,5 +41,4 @@ app.controller("MainController", function($scope, $http){
 	$scope.toggleVisibility = function() {
     	$scope.toggle = !$scope.toggle;
   	};
-
 });

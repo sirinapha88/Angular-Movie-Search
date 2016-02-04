@@ -5,8 +5,7 @@
 	<title>Movie Search App</title>
 	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-	 <script src="js/app.js" charset="utf-8"></script>
-	 
+	 <script src="js/app.js" charset="utf-8"></script>	 
 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/style.css" >
 </head>
@@ -22,8 +21,7 @@
 		</div>
 		<div ng-repeat="movie in movies" class="jumbotron" ng-if="displayVisible">
 			<a ng-click="showMovie(movie)"> {{movie.Title}} <br>{{movie.Year}}</a>
-		</div>
-		
+		</div>		
 		<div class="row" class="movieResult" ng-if="!toggle">
 		  	<div class="col-xs-4"><img ng-src="{{movieDetails.Poster}}"></div>
 	  		<div class="col-xs-6">
@@ -41,8 +39,6 @@
 			</div>
 			</div>
 		</div>
-	</div>
-
-	
+	</div>	
 </body>
 </html>
